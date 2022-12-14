@@ -1,0 +1,25 @@
+<ItemGroup Condition="'$(Configuration)' == 'DEV'">
+		<EmbeddedResource Include="Configurations\SettingsFile.json" />
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#FFFFFF" />
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Resize="True" Color="#FFFFFF" BaseSize="480,720" />
+		<!-- ################## Remove Unwanted Resource for Demo Environment-->
+		<None Remove="Configurations\SettingsFileDemo.json" />
+		<None Remove="Resources\AppIcon\Demo\appicon.svg" />
+		<None Remove="Resources\Splash\Demo\splash.svg" />
+	</ItemGroup>
+
+<ItemGroup Condition="'$(Configuration)' == 'DEMO">
+		<EmbeddedResource Include="Configurations\SettingsFileDemo.json">
+			<LogicalName>MYApp.Configurations.SettingsFileDispatcher.json</LogicalName>
+		</EmbeddedResource>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\Demo\appicon.svg" Color="#FFFFFF" />
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\Demo\splash.svg" Resize="True" Color="#FFFFFF" BaseSize="480,720" />
+		<!-- ################## Remove Unwanted Resource for DEV Environment-->
+		<None Remove="Configurations\SettingsFileDispatcher.json" />
+		<None Remove="Resources\AppIcon\appicon.svg" />
+		<None Remove="Resources\Splash\splash.svg" />
+	</ItemGroup>
